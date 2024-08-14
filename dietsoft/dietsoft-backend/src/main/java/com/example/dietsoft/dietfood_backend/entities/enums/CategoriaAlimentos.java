@@ -1,4 +1,4 @@
-package com.example.dietsoft.dietfood_backend.entities;
+package com.example.dietsoft.dietfood_backend.entities.enums;
 
 public enum CategoriaAlimentos {
     CARBOIDRATOS,

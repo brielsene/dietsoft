@@ -1,5 +1,6 @@
 package com.example.dietsoft.dietfood_backend.entities;
 
+import com.example.dietsoft.dietfood_backend.entities.enums.CategoriaAlimentos;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.example.dietsoft.dietfood_backend.dto;
 
-import com.example.dietsoft.dietfood_backend.entities.CategoriaAlimentos;
+import com.example.dietsoft.dietfood_backend.entities.enums.CategoriaAlimentos;
 import jakarta.validation.constraints.NotNull;
 
 

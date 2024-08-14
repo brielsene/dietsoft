@@ -62,4 +62,8 @@ public class User {
     @Column(name = "password_last_updated")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime passwordLastUpdated;
+
+    @OneToOne
+    @JoinColumn(name = "pessoa_id", unique = true, nullable = false)
+    private Pessoa pessoa;
 }

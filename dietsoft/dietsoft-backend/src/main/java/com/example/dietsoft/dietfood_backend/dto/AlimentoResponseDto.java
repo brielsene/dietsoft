@@ -1,8 +1,7 @@
 package com.example.dietsoft.dietfood_backend.dto;
 
 import com.example.dietsoft.dietfood_backend.entities.Alimentos;
-import com.example.dietsoft.dietfood_backend.entities.CategoriaAlimentos;
-import jakarta.validation.constraints.NotNull;
+import com.example.dietsoft.dietfood_backend.entities.enums.CategoriaAlimentos;
 
 public record AlimentoResponseDto(
         Long id,
