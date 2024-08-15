@@ -28,7 +28,8 @@ public class Pessoa {
     private CategoriaIMC categoriaIMC;
     private String objetivo;
 
-    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
+    @JoinColumn(name = "user_id", unique = true, nullable = false)
     private User user;
 
 

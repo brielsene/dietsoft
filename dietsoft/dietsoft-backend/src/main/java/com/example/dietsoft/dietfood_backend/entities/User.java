@@ -63,7 +63,6 @@ public class User {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime passwordLastUpdated;
 
-    @OneToOne
-    @JoinColumn(name = "pessoa_id", unique = true, nullable = false)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Pessoa pessoa;
 }
