@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/alimentos")
 public class AlimentosController {
@@ -26,5 +28,11 @@ public class AlimentosController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao criar");
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(newAlimento);
+    }
+
+    @PostMapping("/create-more-alimentos")
+    public ResponseEntity createMoreAlimentos(@RequestBody List<AlimentoRequestDto>dto){
+        alimentoService.createMoreAlimentos(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

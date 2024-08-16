@@ -3,7 +3,9 @@ package com.example.dietsoft.dietfood_backend.services;
 import com.example.dietsoft.dietfood_backend.dto.AlimentoRequestDto;
 import com.example.dietsoft.dietfood_backend.dto.AlimentoResponseDto;
 import com.example.dietsoft.dietfood_backend.entities.Alimentos;
+import com.example.dietsoft.dietfood_backend.infra.exceptions.SaveAlimentoInvalidException;
 import com.example.dietsoft.dietfood_backend.repositories.AlimentoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +49,19 @@ public class AlimentoService {
     public List<AlimentoResponseDto> returnAllAlimentos(){
         List<Alimentos> all = alimentoRepository.findAll();
         return all.stream().map(AlimentoResponseDto::new).toList();
+    }
+
+    @Transactional
+    public void createMoreAlimentos(List<AlimentoRequestDto>dto){
+        for(AlimentoRequestDto alimento : dto){
+            Alimentos alimentoEntity = new Alimentos();
+            BeanUtils.copyProperties(alimento, alimentoEntity);
+            Alimentos save = alimentoRepository.save(alimentoEntity);
+            if(save == null){
+                throw new SaveAlimentoInvalidException("error to save alimento");
+            }
+
+        }
     }
 }
 
