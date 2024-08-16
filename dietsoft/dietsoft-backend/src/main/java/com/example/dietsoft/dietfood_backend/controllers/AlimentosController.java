@@ -5,10 +5,7 @@ import com.example.dietsoft.dietfood_backend.dto.AlimentoResponseDto;
 import com.example.dietsoft.dietfood_backend.services.AlimentoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,5 +31,11 @@ public class AlimentosController {
     public ResponseEntity createMoreAlimentos(@RequestBody List<AlimentoRequestDto>dto){
         alimentoService.createMoreAlimentos(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<AlimentoResponseDto>>listAllAlimentos(){
+        return ResponseEntity.status(HttpStatus.OK).body(alimentoService.returnAllAlimentos());
+
     }
 }
