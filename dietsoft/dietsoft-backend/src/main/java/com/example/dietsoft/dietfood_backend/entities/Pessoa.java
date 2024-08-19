@@ -1,6 +1,7 @@
 package com.example.dietsoft.dietfood_backend.entities;
 
 import com.example.dietsoft.dietfood_backend.entities.enums.CategoriaIMC;
+import com.example.dietsoft.dietfood_backend.entities.enums.SexoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,8 @@ public class Pessoa {
     @Column(name = "uuid")
     private UUID uuid;
     private String apelido;
-
+    @Enumerated(EnumType.STRING)
+    private SexoEnum sexo;
     private double peso;
     private double altura;
     private double imc;
