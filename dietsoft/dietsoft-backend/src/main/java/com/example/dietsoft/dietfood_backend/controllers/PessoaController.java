@@ -5,10 +5,9 @@ import com.example.dietsoft.dietfood_backend.entities.Pessoa;
 import com.example.dietsoft.dietfood_backend.services.PessoaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/pessoa")
@@ -27,6 +26,16 @@ public class PessoaController {
         }
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
+
+    }
+
+    @PostMapping("/calculate-gasto-basal/{id}")
+    public ResponseEntity calcGastoBasal(@PathVariable("id") UUID uuid){
+        double v = pessoaService.calculoGastoBasal(uuid);
+        if(v == 0){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("erro to calcule gasto basal");
+        }
+        return ResponseEntity.ok(v);
 
     }
 }

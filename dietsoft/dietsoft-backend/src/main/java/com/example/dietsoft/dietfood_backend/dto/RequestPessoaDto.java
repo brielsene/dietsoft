@@ -12,6 +12,8 @@ public record RequestPessoaDto(
         double peso,
         double altura,
         String objetivo,
+
+        Integer idade,
         UUID uuidUser
 
 

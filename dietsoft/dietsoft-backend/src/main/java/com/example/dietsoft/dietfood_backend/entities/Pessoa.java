@@ -29,10 +29,13 @@ public class Pessoa {
     @Column(name = "categoria_imc")
     private CategoriaIMC categoriaIMC;
     private String objetivo;
+    private Integer idade;
+    private double gastoBasal;
 
     @OneToOne
     @JoinColumn(name = "user_id", unique = true, nullable = false)
     private User user;
+
 
 
     public void calcularImc(){
