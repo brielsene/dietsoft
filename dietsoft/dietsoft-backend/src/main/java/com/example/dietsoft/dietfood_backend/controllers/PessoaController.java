@@ -30,7 +30,8 @@ public class PessoaController {
     }
 
     @PostMapping("/calculate-gasto-basal/{id}")
-    public ResponseEntity calcGastoBasal(@PathVariable("id") UUID uuid){
+    public ResponseEntity calcGastoBasal(@PathVariable("id") String uuidstr){
+        UUID uuid = UUID.fromString(uuidstr);
         double v = pessoaService.calculoGastoBasal(uuid);
         if(v == 0){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("erro to calcule gasto basal");

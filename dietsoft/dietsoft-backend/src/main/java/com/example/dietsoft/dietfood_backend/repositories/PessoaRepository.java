@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, UUID> {
-    Optional<Pessoa> findById(Long id);
+    Optional<Pessoa> findById(UUID id);
 }

@@ -22,8 +22,8 @@ public class Pessoa {
     private String apelido;
     @Enumerated(EnumType.STRING)
     private SexoEnum sexo;
-    private double peso;
-    private double altura;
+    private double peso;//KG
+    private double altura;//METROS
     private double imc;
     @Enumerated(EnumType.STRING)
     @Column(name = "categoria_imc")

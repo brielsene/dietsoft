@@ -57,7 +57,14 @@ public class PessoaService {
         //homens
         double calcGastoBasal = 0;
         if(pessoa.getSexo().equals(SexoEnum.MASCULINO)){
-             calcGastoBasal= 66 + (13.8 * pessoa.getPeso() + (5* pessoa.getAltura() - (6.8 * pessoa.getIdade())));
+            double alturaEmCms = 0;
+            if(pessoa.getAltura()<3){
+                //CONVERTER PARA CMS
+                alturaEmCms = pessoa.getAltura()*100;
+            }
+             calcGastoBasal= 66 + (13.8 * pessoa.getPeso() + (5* alturaEmCms - (6.8 * pessoa.getIdade())));
+             pessoa.setGastoBasal(calcGastoBasal);
+             pessoaRepository.save(pessoa);
         }else if(pessoa.getSexo().equals(SexoEnum.FEMININO)){
             //FAZER A CONTA!!
         }
