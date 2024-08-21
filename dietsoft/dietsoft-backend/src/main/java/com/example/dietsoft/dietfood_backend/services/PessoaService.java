@@ -55,18 +55,22 @@ public class PessoaService {
 //
 //        2.012,4
         //homens
+
+//        Para mulheres: TMB = 655 + (9,6 x peso em kg) + (1,8 x altura em cm) - (4,7 x idade em anos)
+
         double calcGastoBasal = 0;
+        double alturaEmCms = 0;
+        if(pessoa.getAltura()<3){
+            //CONVERTER PARA CMS
+            alturaEmCms = pessoa.getAltura()*100;
+        }
         if(pessoa.getSexo().equals(SexoEnum.MASCULINO)){
-            double alturaEmCms = 0;
-            if(pessoa.getAltura()<3){
-                //CONVERTER PARA CMS
-                alturaEmCms = pessoa.getAltura()*100;
-            }
+
              calcGastoBasal= 66 + (13.8 * pessoa.getPeso() + (5* alturaEmCms - (6.8 * pessoa.getIdade())));
              pessoa.setGastoBasal(calcGastoBasal);
              pessoaRepository.save(pessoa);
         }else if(pessoa.getSexo().equals(SexoEnum.FEMININO)){
-            //FAZER A CONTA!!
+            calcGastoBasal = 655 + (9.6 * pessoa.getPeso()) + (1.8 * alturaEmCms) - (4.7 * pessoa.getIdade());
         }
 
         return calcGastoBasal;
