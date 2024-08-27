@@ -1,6 +1,7 @@
 package com.example.dietsoft.dietfood_backend.entities;
 
 import com.example.dietsoft.dietfood_backend.entities.enums.CategoriaIMC;
+import com.example.dietsoft.dietfood_backend.entities.enums.ObjetivoEnum;
 import com.example.dietsoft.dietfood_backend.entities.enums.SexoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,9 +29,12 @@ public class Pessoa {
     @Enumerated(EnumType.STRING)
     @Column(name = "categoria_imc")
     private CategoriaIMC categoriaIMC;
-    private String objetivo;
+    @Enumerated(EnumType.STRING)
+    private ObjetivoEnum objetivo;
     private Integer idade;
     private double gastoBasal;
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Diet diet;
 
     @OneToOne
     @JoinColumn(name = "user_id", unique = true, nullable = false)
@@ -59,28 +63,32 @@ public class Pessoa {
 
     }
 
+    public void setObjetoManual(ObjetivoEnum objetivo){
+        this.objetivo = objetivo;
+    }
+
     public void definirObjetivoDeAcordoComIMC(){
         switch(this.categoriaIMC) {
             case ABAIXO_DO_PESO:
-                this.objetivo = "Ganhar Massa";
+                this.objetivo =  ObjetivoEnum.GANHAR_MASSA;
                 break;
             case PESO_NORMAL:
-                this.objetivo = "Manter Peso";
+                this.objetivo = ObjetivoEnum.MANTER;
                 break;
             case SOBREPESO:
-                this.objetivo = "Perder Peso";
+                this.objetivo = ObjetivoEnum.PERDER_GORDURA;
                 break;
             case OBESIDADE_GRAU_1:
-                this.objetivo = "Perder Peso com Monitoramento";
+                this.objetivo = ObjetivoEnum.PERDER_GORDURA;
                 break;
             case OBESIDADE_GRAU_2:
-                this.objetivo = "Perder Peso com Assistência Médica";
+                this.objetivo = ObjetivoEnum.PERDER_GORDURA;
                 break;
             case OBESIDADE_GRAU_3:
-                this.objetivo = "Perder Peso com Suporte Intensivo";
+                this.objetivo = ObjetivoEnum.PERDER_GORDURA;
                 break;
             default:
-                this.objetivo = "Objetivo Indefinido";
+                this.objetivo = ObjetivoEnum.INDEFINIDO;
                 break;
         }
     }
