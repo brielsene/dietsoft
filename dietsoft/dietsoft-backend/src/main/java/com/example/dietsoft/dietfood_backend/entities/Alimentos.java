@@ -17,6 +17,16 @@ public class Alimentos {
     private String name;
     private Double qtdProteina;
     private Double qtdCarbo;
+    private Double caloria;
+    private Double qtdGordura;
+    private Double qtdFibra;
+    private Double qtdSodio;
+    private Double qtdAcucares;
+    @Enumerated(EnumType.STRING)
+    private CategoriaAlimentos categoria;
+    private Double porcao;//em gramas
+    private String medidaCaseira;
+    private String img;
 
     public Alimentos(Long id, String name, Double qtdProteina, Double qtdCarbo, Double caloria, Double qtdGordura, Double qtdFibra, Double qtdSodio, Double qtdAcucares, CategoriaAlimentos categoria, Double porcao, String medidaCaseira) {
         this.id = id;
@@ -47,15 +57,7 @@ public class Alimentos {
         this.medidaCaseira = medidaCaseira;
     }
 
-    private Double caloria;
-    private Double qtdGordura;
-    private Double qtdFibra;
-    private Double qtdSodio;
-    private Double qtdAcucares;
-    @Enumerated(EnumType.STRING)
-    private CategoriaAlimentos categoria;
-    private Double porcao;//em gramas
-    private String medidaCaseira;
+
 
 
 }
