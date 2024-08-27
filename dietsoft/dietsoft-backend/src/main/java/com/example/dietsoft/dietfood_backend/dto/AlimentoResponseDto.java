@@ -6,9 +6,9 @@ import com.example.dietsoft.dietfood_backend.entities.enums.CategoriaAlimentos;
 public record AlimentoResponseDto(
         Long id,
         String name,
-        String qtdProteina,
-        String qtdCarbo,
-        String caloria,
+        Double qtdProteina,
+        Double qtdCarbo,
+        Double caloria,
         Double qtdGordura,
         Double qtdFibra,
         Double qtdSodio,

@@ -7,9 +7,9 @@ import jakarta.validation.constraints.NotNull;
 public record AlimentoRequestDto(
          @NotNull
          String name,
-         String qtdProteina,
-         String qtdCarbo,
-         String caloria,
+         Double qtdProteina,
+         Double qtdCarbo,
+         Double caloria,
          Double qtdGordura,
          Double qtdFibra,
          Double qtdSodio,

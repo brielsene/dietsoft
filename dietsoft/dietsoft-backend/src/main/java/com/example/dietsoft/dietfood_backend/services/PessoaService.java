@@ -45,19 +45,6 @@ public class PessoaService {
 
     public double calculoGastoBasal(UUID uuid){
         Pessoa pessoa = searchPessoaById(uuid);
-        //EXEMPLO CÁLCULO GASTO BASAL
-//        Homens: 66 + (13,8 x peso em kg) + (5 x altura em cm) – (6,8 x idade em anos)
-//
-//
-//        66 +(13,8 x 86)+(5 x 182) - (6,8 x 22)
-//
-//        66 + 1.186,8 + 910 - 149,6
-//
-//        2.012,4
-        //homens
-
-//        Para mulheres: TMB = 655 + (9,6 x peso em kg) + (1,8 x altura em cm) - (4,7 x idade em anos)
-
         double calcGastoBasal = 0;
         double alturaEmCms = 0;
         if(pessoa.getAltura()<3){

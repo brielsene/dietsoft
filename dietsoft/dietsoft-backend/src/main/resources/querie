@@ -1,0 +1,41 @@
+---- Inserindo Alimentos da Categoria: Carboidratos
+--INSERT INTO tb_alimentos (nome, categoria, calorias, carboidratos, proteinas, gorduras, fibras) VALUES
+--('Arroz', 'Carboidratos', 130, 28, 2.7, 0.3, 0.4),
+--('Macarrão', 'Carboidratos', 157, 30, 5.8, 0.9, 1.8),
+--('Batata', 'Carboidratos', 77, 17, 2.0, 0.1, 2.2);
+--
+---- Inserindo Alimentos da Categoria: Proteínas
+--INSERT INTO tb_alimentos (nome, categoria, calorias, carboidratos, proteinas, gorduras, fibras) VALUES
+--('Carne Bovina', 'Proteínas', 250, 0, 26, 17, 0),
+--('Peito de Frango', 'Proteínas', 165, 0, 31, 3.6, 0),
+--('Ovo', 'Proteínas', 68, 1, 6, 5, 0);
+--
+---- Inserindo Alimentos da Categoria: Gorduras Saudáveis
+--INSERT INTO tb_alimentos (nome, categoria, calorias, carboidratos, proteinas, gorduras, fibras) VALUES
+--('Abacate', 'Gorduras', 160, 9, 2, 15, 7),
+--('Azeite de Oliva', 'Gorduras', 884, 0, 0, 100, 0),
+--('Amêndoas', 'Gorduras', 576, 22, 21, 49, 12);
+--
+---- Inserindo Alimentos da Categoria: Fibras
+--INSERT INTO tb_alimentos (nome, categoria, calorias, carboidratos, proteinas, gorduras, fibras) VALUES
+--('Aveia', 'Fibras', 389, 66, 17, 7, 11),
+--('Lentilhas', 'Fibras', 116, 20, 9, 0.4, 7.9),
+--('Maçã', 'Fibras', 52, 14, 0.3, 0.2, 2.4);
+--
+---- Inserindo Alimentos da Categoria: Vitaminas e Minerais
+--INSERT INTO tb_alimentos (nome, categoria, calorias, carboidratos, proteinas, gorduras, fibras) VALUES
+--('Espinafre', 'Vitaminas e Minerais', 23, 3.6, 2.9, 0.4, 2.2),
+--('Cenoura', 'Vitaminas e Minerais', 41, 10, 0.9, 0.2, 2.8),
+--('Banana', 'Vitaminas e Minerais', 89, 23, 1.1, 0.3, 2.6);
+--
+---- Inserindo Alimentos da Categoria: Antioxidantes
+--INSERT INTO tb_alimentos (nome, categoria, calorias, carboidratos, proteinas, gorduras, fibras) VALUES
+--('Morango', 'Antioxidantes', 32, 7.7, 0.7, 0.3, 2),
+--('Mirtilo', 'Antioxidantes', 57, 14, 0.7, 0.3, 2.4),
+--('Chá Verde', 'Antioxidantes', 1, 0.2, 0, 0, 0);
+--
+---- Inserindo Alimentos da Categoria: Água
+--INSERT INTO tb_alimentos (nome, categoria, calorias, carboidratos, proteinas, gorduras, fibras) VALUES
+--('Água Mineral', 'Água', 0, 0, 0, 0, 0),
+--('Melancia', 'Água', 30, 8, 0.6, 0.2, 0.4),
+--('Pepino', 'Água', 16, 3.6, 0.7, 0.1, 0.5);

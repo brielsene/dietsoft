@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_alimentos")
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Alimentos {
@@ -16,16 +15,46 @@ public class Alimentos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String qtdProteina;
-    private String qtdCarbo;
-    private String caloria;
+    private Double qtdProteina;
+    private Double qtdCarbo;
+
+    public Alimentos(Long id, String name, Double qtdProteina, Double qtdCarbo, Double caloria, Double qtdGordura, Double qtdFibra, Double qtdSodio, Double qtdAcucares, CategoriaAlimentos categoria, Double porcao, String medidaCaseira) {
+        this.id = id;
+        this.name = name;
+        this.qtdProteina = qtdProteina;
+        this.qtdCarbo = qtdCarbo;
+        this.caloria = caloria;
+        this.qtdGordura = qtdGordura;
+        this.qtdFibra = qtdFibra;
+        this.qtdSodio = qtdSodio;
+        this.qtdAcucares = qtdAcucares;
+        this.categoria = categoria;
+        this.porcao = porcao;
+        this.medidaCaseira = medidaCaseira;
+    }
+
+    public Alimentos(String name, Double qtdProteina, Double qtdCarbo, Double caloria, Double qtdGordura, Double qtdFibra, Double qtdSodio, Double qtdAcucares, CategoriaAlimentos categoria, Double porcao, String medidaCaseira) {
+        this.name = name;
+        this.qtdProteina = qtdProteina;
+        this.qtdCarbo = qtdCarbo;
+        this.caloria = caloria;
+        this.qtdGordura = qtdGordura;
+        this.qtdFibra = qtdFibra;
+        this.qtdSodio = qtdSodio;
+        this.qtdAcucares = qtdAcucares;
+        this.categoria = categoria;
+        this.porcao = porcao;
+        this.medidaCaseira = medidaCaseira;
+    }
+
+    private Double caloria;
     private Double qtdGordura;
     private Double qtdFibra;
     private Double qtdSodio;
     private Double qtdAcucares;
     @Enumerated(EnumType.STRING)
     private CategoriaAlimentos categoria;
-    private Double porcao;
+    private Double porcao;//em gramas
     private String medidaCaseira;
 
 }
