@@ -24,6 +24,8 @@ import java.util.UUID;
 @Table(name = "TB_USERS")
 public class User {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid2")
     @JsonIgnore

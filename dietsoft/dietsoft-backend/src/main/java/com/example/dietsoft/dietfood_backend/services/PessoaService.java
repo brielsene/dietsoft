@@ -30,6 +30,7 @@ public class PessoaService {
         pessoa.calcularImc();
         pessoa.definirCategoriaIMC();
         pessoa.setIdade(dto.idade());
+        pessoa.setSexo(dto.sexoEnum());
         if(dto.objetivo() == null || dto.objetivo().isEmpty() || dto.objetivo().isBlank()){
             pessoa.definirObjetivoDeAcordoComIMC();
         }

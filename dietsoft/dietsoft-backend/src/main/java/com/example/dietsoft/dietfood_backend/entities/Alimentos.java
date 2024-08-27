@@ -57,4 +57,5 @@ public class Alimentos {
     private Double porcao;//em gramas
     private String medidaCaseira;
 
+
 }

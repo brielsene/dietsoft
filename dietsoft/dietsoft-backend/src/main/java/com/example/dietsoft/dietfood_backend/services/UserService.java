@@ -82,6 +82,7 @@ public class UserService {
 
     private UserDTO convertToDTO(User user) {
         UserDTO userDTO = new UserDTO();
+        userDTO.setUuid(user.getId());
         userDTO.setName(user.getName());
         userDTO.setEmail(user.getEmail());
         userDTO.setCreatedAt(user.getCreatedAt()); // Inclui a data de criação
