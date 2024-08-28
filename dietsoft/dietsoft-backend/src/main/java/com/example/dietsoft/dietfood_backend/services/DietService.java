@@ -33,11 +33,11 @@ public class DietService {
 
     public PorcentagemNutrientesDTO porcentagemNutrientesDTO(Double gastoCaloricoBasal, ObjetivoEnum objetivo){
         if (objetivo.equals(ObjetivoEnum.GANHAR_MASSA)) {
-
+            //+400
         }else if(objetivo.equals(ObjetivoEnum.PERDER_GORDURA)) {
-
+            //-400
         }else if(objetivo.equals(ObjetivoEnum.MANTER)){
-
+            //0
         }else if(objetivo.equals(ObjetivoEnum.INDEFINIDO)){
 
         }
