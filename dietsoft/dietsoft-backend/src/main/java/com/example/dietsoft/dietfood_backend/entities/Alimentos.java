@@ -27,6 +27,9 @@ public class Alimentos {
     private Double porcao;//em gramas
     private String medidaCaseira;
     private String img;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "diet_id")
+    private Diet diet;
 
     public Alimentos(Long id, String name, Double qtdProteina, Double qtdCarbo, Double caloria, Double qtdGordura, Double qtdFibra, Double qtdSodio, Double qtdAcucares, CategoriaAlimentos categoria, Double porcao, String medidaCaseira) {
         this.id = id;

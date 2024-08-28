@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -34,7 +35,7 @@ public class Pessoa {
     private Integer idade;
     private double gastoBasal;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Diet diet;
+    private List<Diet> diet;
 
     @OneToOne
     @JoinColumn(name = "user_id", unique = true, nullable = false)

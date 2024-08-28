@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -15,7 +16,7 @@ import java.util.UUID;
 @Data
 public class Diet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
     private String name;
     private String description;
@@ -25,4 +26,6 @@ public class Diet {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
+    @OneToMany(mappedBy = "diet", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Alimentos>alimentos;
 }
