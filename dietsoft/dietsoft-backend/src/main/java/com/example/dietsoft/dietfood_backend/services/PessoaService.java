@@ -3,6 +3,7 @@ package com.example.dietsoft.dietfood_backend.services;
 import com.example.dietsoft.dietfood_backend.dto.RequestPessoaDto;
 import com.example.dietsoft.dietfood_backend.entities.Pessoa;
 import com.example.dietsoft.dietfood_backend.entities.User;
+import com.example.dietsoft.dietfood_backend.entities.enums.AtividadesFisicasEnum;
 import com.example.dietsoft.dietfood_backend.entities.enums.SexoEnum;
 import com.example.dietsoft.dietfood_backend.repositories.PessoaRepository;
 import com.example.dietsoft.dietfood_backend.repositories.UserRepository;
@@ -64,7 +65,7 @@ public class PessoaService {
         return calcGastoBasal;
     }
 
-    public void calculoAcrescimoBasalAtividadesFisicas(UUID uuid){
+    public Double calculoAcrescimoBasalAtividadesFisicas(UUID uuid, AtividadesFisicasEnum fisicasEnum){
             if(atividadesFisicas.isEmpty()){
                 atividadesFisicas.put("CAMINHADA-LEVE", Double.valueOf(200));
                 atividadesFisicas.put("TAREFAS-DOMESTICAS", Double.valueOf(150));
@@ -85,7 +86,16 @@ public class PessoaService {
                 atividadesFisicas.put("TREINAMENTO-FORCA", Double.valueOf(400));
                 atividadesFisicas.put("NATACAO-INTENSA", Double.valueOf(600));
                 atividadesFisicas.put("PULAR-CORDA", Double.valueOf(700));
+                Double v = atividadesFisicas.get(fisicasEnum);
+                Pessoa pessoa = searchPessoaById(uuid);
+                if(v != null){
+                    pessoa.setGastoBasal(pessoa.getGastoBasal()+v);
+                    pessoaRepository.save(pessoa);
+                    return pessoa.getGastoBasal();
+                }
+
             }
+            return Double.valueOf(0);
 
 //        Caminhada Leve (4 km/h): ~200-300 calorias por hora
 //        Tarefas Domésticas (limpar, lavar pratos): ~150-250 calorias por hora
