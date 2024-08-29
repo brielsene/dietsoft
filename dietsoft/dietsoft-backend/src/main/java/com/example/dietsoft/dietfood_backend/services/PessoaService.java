@@ -68,34 +68,40 @@ public class PessoaService {
 
     public Double calculoAcrescimoBasalAtividadesFisicas(RequestActiviewsPhysicialDTO dto){
             if(atividadesFisicas.isEmpty()){
-                atividadesFisicas.put("CAMINHADA-LEVE", Double.valueOf(200));
-                atividadesFisicas.put("TAREFAS-DOMESTICAS", Double.valueOf(150));
-                atividadesFisicas.put("ANDAR-BICICLETA-CASUAL", Double.valueOf(280));
+                atividadesFisicas.put("CAMINHADA_LEVE", Double.valueOf(200));
+                atividadesFisicas.put("TAREFAS_DOMESTICAS", Double.valueOf(150));
+                atividadesFisicas.put("ANDAR_BICICLETA_CASUAL", Double.valueOf(280));
                 atividadesFisicas.put("JARDINAGEM", Double.valueOf(250));
-                atividadesFisicas.put("SUBIR-ESCADAS-DEVAGAR", Double.valueOf(300));
+                atividadesFisicas.put("SUBIR_ESCADAS_DEVAGAR", Double.valueOf(300));
 
                 // Atividades Físicas Moderadas
-                atividadesFisicas.put("CAMINHADA-RAPIDA", Double.valueOf(300));
-                atividadesFisicas.put("NATACAO-MODERADA", Double.valueOf(400));
+                atividadesFisicas.put("CAMINHADA_RAPIDA", Double.valueOf(300));
+                atividadesFisicas.put("NATACAO_MODERADA", Double.valueOf(400));
                 atividadesFisicas.put("DANCA", Double.valueOf(350));
-                atividadesFisicas.put("CORRIDA-LEVE", Double.valueOf(500));
-                atividadesFisicas.put("ANDAR-BICICLETA-MODERADO", Double.valueOf(400));
+                atividadesFisicas.put("CORRIDA_LEVE", Double.valueOf(500));
+                atividadesFisicas.put("ANDAR_BICICLETA_MODERADO", Double.valueOf(400));
 
                 // Atividades Físicas Intensas
-                atividadesFisicas.put("CORRIDA-INTENSA", Double.valueOf(600));
-                atividadesFisicas.put("ANDAR-BICICLETA-INTENSO", Double.valueOf(600));
-                atividadesFisicas.put("TREINAMENTO-FORCA", Double.valueOf(400));
-                atividadesFisicas.put("NATACAO-INTENSA", Double.valueOf(600));
-                atividadesFisicas.put("PULAR-CORDA", Double.valueOf(700));
-                Double v = atividadesFisicas.get(dto.atividadesFisicasEnum());
-                Pessoa pessoa = searchPessoaById(dto.uuid());
-                if(v != null){
-                    pessoa.setGastoBasal(pessoa.getGastoBasal()+v);
-                    pessoaRepository.save(pessoa);
-                    return pessoa.getGastoBasal();
-                }
+                atividadesFisicas.put("CORRIDA_INTENSA", Double.valueOf(600));
+                atividadesFisicas.put("ANDAR_BICICLETA_INTENSO", Double.valueOf(600));
+                atividadesFisicas.put("TREINAMENTO_FORCA", Double.valueOf(400));
+                atividadesFisicas.put("NATACAO_INTENSA", Double.valueOf(600));
+                atividadesFisicas.put("PULAR_CORDA", Double.valueOf(700));
 
             }
+        System.out.println(dto.atividadesFisicasEnum().name().toString()+ "MAP: "+atividadesFisicas.get("TREINAMENTO_FORCA"));
+            Double v = atividadesFisicas.get(dto.atividadesFisicasEnum().name().toString());
+            System.out.println("V: "+v);
+            Pessoa pessoa = searchPessoaById(dto.uuid());
+            if(v != null){
+                pessoa.setGastoBasal(pessoa.getGastoBasal()+v);
+                pessoaRepository.save(pessoa);
+                return pessoa.getGastoBasal();
+            }
+
+
+//        System.out.println(dto);
+//        System.out.println(atividadesFisicas);
             return Double.valueOf(0);
 
 //        Caminhada Leve (4 km/h): ~200-300 calorias por hora
