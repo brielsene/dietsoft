@@ -1,5 +1,6 @@
 package com.example.dietsoft.dietfood_backend.services;
 
+import com.example.dietsoft.dietfood_backend.dto.RequestActiviewsPhysicialDTO;
 import com.example.dietsoft.dietfood_backend.dto.RequestPessoaDto;
 import com.example.dietsoft.dietfood_backend.entities.Pessoa;
 import com.example.dietsoft.dietfood_backend.entities.User;
@@ -65,7 +66,7 @@ public class PessoaService {
         return calcGastoBasal;
     }
 
-    public Double calculoAcrescimoBasalAtividadesFisicas(UUID uuid, AtividadesFisicasEnum fisicasEnum){
+    public Double calculoAcrescimoBasalAtividadesFisicas(RequestActiviewsPhysicialDTO dto){
             if(atividadesFisicas.isEmpty()){
                 atividadesFisicas.put("CAMINHADA-LEVE", Double.valueOf(200));
                 atividadesFisicas.put("TAREFAS-DOMESTICAS", Double.valueOf(150));
@@ -86,8 +87,8 @@ public class PessoaService {
                 atividadesFisicas.put("TREINAMENTO-FORCA", Double.valueOf(400));
                 atividadesFisicas.put("NATACAO-INTENSA", Double.valueOf(600));
                 atividadesFisicas.put("PULAR-CORDA", Double.valueOf(700));
-                Double v = atividadesFisicas.get(fisicasEnum);
-                Pessoa pessoa = searchPessoaById(uuid);
+                Double v = atividadesFisicas.get(dto.atividadesFisicasEnum());
+                Pessoa pessoa = searchPessoaById(dto.uuid());
                 if(v != null){
                     pessoa.setGastoBasal(pessoa.getGastoBasal()+v);
                     pessoaRepository.save(pessoa);

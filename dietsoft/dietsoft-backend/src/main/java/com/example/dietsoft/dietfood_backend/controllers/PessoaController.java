@@ -1,5 +1,6 @@
 package com.example.dietsoft.dietfood_backend.controllers;
 
+import com.example.dietsoft.dietfood_backend.dto.RequestActiviewsPhysicialDTO;
 import com.example.dietsoft.dietfood_backend.dto.RequestPessoaDto;
 import com.example.dietsoft.dietfood_backend.entities.Pessoa;
 import com.example.dietsoft.dietfood_backend.services.PessoaService;
@@ -38,5 +39,14 @@ public class PessoaController {
         }
         return ResponseEntity.ok(v);
 
+    }
+
+    @PostMapping("/add-calorias-phyisical-activies")
+    public ResponseEntity addCaloricsPhyisical(@RequestBody RequestActiviewsPhysicialDTO dto){
+        Double v = pessoaService.calculoAcrescimoBasalAtividadesFisicas(dto);
+        if(v != null){
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }
